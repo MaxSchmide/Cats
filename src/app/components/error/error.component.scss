@@ -1,0 +1,15 @@
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  color: white;
+  background-color: red;
+  position: relative;
+  &__button {
+    position: absolute;
+    top: 2;
+    right: 5;
+    color: white;
+  }
+}

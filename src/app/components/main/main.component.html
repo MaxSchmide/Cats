@@ -1,0 +1,7 @@
+<section class="main">
+  <div class="cards">
+    <mat-card class="card" *ngFor="let cat of loadedCats$ | async">
+      <img src="{{ cat.url }}" alt="" class="cat-photo" />
+    </mat-card>
+  </div>
+</section>

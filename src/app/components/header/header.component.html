@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+  <span>Cats</span>
+  <span class="spacer"></span>
+  <mat-form-field>
+    <mat-label>Select a number</mat-label>
+    <mat-select [(ngModel)]="selectedNumber">
+      <mat-option value="1">1</mat-option>
+      <mat-option value="5">5</mat-option>
+      <mat-option value="10">10</mat-option>
+      <mat-option value="20">20</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <span class="spacer"></span>
+  <mat-form-field>
+    <mat-label>Select an breed</mat-label>
+    <mat-select [(ngModel)]="selectedBreed">
+      <mat-option *ngFor="let breed of catsBreeds$ | async" [value]="breed.id">
+        {{ breed.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-toolbar>
