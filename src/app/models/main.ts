@@ -53,15 +53,11 @@ export interface IBreeds {
   bidability?: number;
 }
 export interface ICats {
-  breeds: IBreeds;
-  id: string;
   url: string;
-  width: number;
-  height: number;
 }
 export interface breedsState {
   loading: boolean;
-  name: IBreeds[];
+  names: Array<IResponse>;
 }
 export interface catsState {
   loading: boolean;
@@ -70,4 +66,8 @@ export interface catsState {
 export interface IStore {
   breeds: breedsState;
   cats: catsState;
+}
+export interface IResponse {
+  name: string;
+  id: string;
 }

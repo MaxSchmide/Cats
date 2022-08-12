@@ -4,7 +4,7 @@ import { getBreedsRequest, getBreedsSuccess } from '../actions/breeds.actions';
 
 const initialState: breedsState = {
   loading: false,
-  name: [],
+  names: [],
 };
 
 export const breedsFeature = createFeature({
@@ -17,9 +17,9 @@ export const breedsFeature = createFeature({
     on(getBreedsSuccess, (state, action) => ({
       ...state,
       loading: false,
-      name: action.payload,
+      names: action.payload,
     }))
   ),
 });
-export const { name, reducer, selectBreedsState, selectLoading, selectName } =
+export const { name, reducer, selectBreedsState, selectLoading, selectNames } =
   breedsFeature;
