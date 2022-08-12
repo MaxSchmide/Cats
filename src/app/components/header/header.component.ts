@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
-import { breedsState, IBreeds, IStore } from 'src/app/models/main';
+import { breedsState, IResponse, IStore } from 'src/app/models/main';
 import { CatsService } from 'src/app/services/cats.service';
 import { getCats, getCatsSuccess } from 'src/app/store/actions/cats.actions';
 import { selectBreedsState } from 'src/app/store/reducers/breeds.reducer';
@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   breeds$: Observable<breedsState> = this.store$.pipe(
     select(selectBreedsState)
   );
-  catsBreeds$ = new Subject<IBreeds[]>();
+  catsBreeds$ = new Subject<IResponse[]>();
   breed: string = '';
   itemsPePage: number = 10;
   constructor(private store$: Store<IStore>, private fetchData: CatsService) {}
@@ -47,6 +47,6 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.breeds$.subscribe((val) => this.catsBreeds$.next(val.name));
+    this.breeds$.subscribe((val) => this.catsBreeds$.next(val.names));
   }
 }

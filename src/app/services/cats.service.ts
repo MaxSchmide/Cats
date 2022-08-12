@@ -18,7 +18,7 @@ export class CatsService {
       })
       .pipe(catchError(this.errorHandler.bind(this)));
   }
-  getAll(breedId: string, limitNumber: number): Observable<ICats[]> {
+  getAll(breedId: string = '', limitNumber: number = 10): Observable<ICats[]> {
     return this.http
       .get<ICats[]>('https://api.thecatapi.com/v1/images/search', {
         params: {
